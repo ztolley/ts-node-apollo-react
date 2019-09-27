@@ -1,0 +1,25 @@
+{
+  "version": "0.2.55",
+  "steps": [
+    {
+      "stepType": "CreateField",
+      "model": "Project",
+      "name": "todos",
+      "type": {
+        "Relation": {
+          "to": "Todo",
+          "to_fields": [],
+          "name": "ProjectToTodo",
+          "on_delete": "None"
+        }
+      },
+      "arity": "list",
+      "isUnique": false
+    },
+    {
+      "stepType": "DeleteField",
+      "model": "Project",
+      "name": "project"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+type Project {
+  id: ID!
+  title: String!
+  todos: [Todo]
+}
+
+type Todo {
+  id: ID!
+  title: String!
+  complete: Boolean!
+  project: Project
+}
+
+type Query {
+  projects: [Project]
+  project(id: ID!): Project
+
+  todos: [Todo]
+  todo(id: ID!): Todo
+}
+
+type Mutation {
+  addProject(title: String!): Project!
+  updateProject(id: ID!, title: String!): Project!
+  addTodo(title: String!, projectId: String): Todo!
+  updateTodo(
+    id: ID!
+    title: String!
+    projectId: String
+    complete: Boolean!
+  ): Todo!
+}

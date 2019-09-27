@@ -1,0 +1,50 @@
+version: "3.7"
+
+services:
+  api:
+    build:
+      context: ./server
+      dockerfile: ../docker/Dockerfile-server
+    environment:
+      DATABASE_URL: postgres://todo:password@db/todo
+      NODE_ENV: production
+      SERVER_PORT: 3000
+    restart: unless-stopped
+    depends_on:
+      - db
+    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; yarn --cwd /app start'
+
+  webapp:
+    build:
+      context: ./web
+      dockerfile: docker/Dockerfile-client
+    restart: unless-stopped
+
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: todo
+      POSTGRES_DB: todo
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@scropt.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./web
+      dockerfile: ../docker/Dockerfile-web
+    ports:
+      - 8000:80
+    depends_on:
+      - api
+      - webapp
+      - pgadmin
+    restart: unless-stopped

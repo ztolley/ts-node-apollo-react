@@ -1,0 +1,11 @@
+mutation AddTodo($title: String!, $projectId: String) {
+  addTodo(title: $title, projectId: $projectId) {
+    id
+    title
+    complete
+    project {
+      id
+      title
+    }
+  }
+}

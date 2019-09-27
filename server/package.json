@@ -1,0 +1,66 @@
+{
+  "name": "@scropt/todo-server-ts-graphql",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "main": "dist/index.js",
+  "keywords": [
+    "javascript",
+    "typescript",
+    "node",
+    "graphql",
+    "prisma"
+  ],
+  "author": "Zac Tolley <zac@thetolleys.com> (https://github.com/ztolley)",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon",
+    "lint": "eslint",
+    "start": "node ./dist/script.js",
+    "db:gen": "prisma2 lift save",
+    "db:migrate": "prisma2 lift up",
+    "db:dao": "prisma2 generate"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.9.4",
+    "express": "^4.17.1",
+    "graphql": "^14.5.8",
+    "graphql-import": "^0.7.1",
+    "pg": "^7.12.1",
+    "prisma2": "2.0.0-preview-12",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@scropt/eslint-config-typescript": "^0.0.3",
+    "dotenv": "^8.1.0",
+    "eslint": "^6.4.0",
+    "nodemon": "^1.19.2"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@scropt/eslint-config-typescript"
+    ]
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "ts,tsx,grapgql",
+    "ignore": [
+      "src/**/*.test.ts",
+      "src/**/*.test.tsx"
+    ],
+    "exec": "ts-node ./src/index.ts"
+  }
+}

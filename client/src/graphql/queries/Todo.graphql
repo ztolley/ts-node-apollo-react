@@ -1,0 +1,11 @@
+query ToDo($id: ID!) {
+  todo(id: $id) {
+    id
+    title
+    complete
+    project {
+      id
+      title
+    }
+  }
+}
