@@ -1,5 +1,5 @@
 {
-  "name": "@scropt/todo-server-ts-graphql",
+  "name": "@ztolley/todo-server-ts-graphql",
   "version": "0.0.1",
   "license": "MIT",
   "private": true,
@@ -33,7 +33,7 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "@scropt/eslint-config-typescript": "^0.0.3",
+    "@ztolley/eslint-config-typescript": "^0.1.0",
     "dotenv": "^8.1.0",
     "eslint": "^6.4.0",
     "nodemon": "^1.19.2"
@@ -43,7 +43,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "@scropt/eslint-config-typescript"
+      "@ztolley/eslint-config-typescript"
     ]
   },
   "prettier": {

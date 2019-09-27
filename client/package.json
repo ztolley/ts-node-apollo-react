@@ -1,5 +1,5 @@
 {
-  "name": "@scropt/todo-client-ts-graphql",
+  "name": "@ztolley/todo-client-ts-graphql",
   "version": "0.0.1",
   "license": "MIT",
   "private": true,
@@ -32,12 +32,12 @@
     "typescript": "3.6.3"
   },
   "devDependencies": {
-    "@scropt/eslint-config-typescript": "^0.0.2",
-    "@types/react-router-dom": "^5.1.0"
+    "@types/react-router-dom": "^5.1.0",
+    "@ztolley/eslint-config-typescript": "^0.1.0"
   },
   "eslintConfig": {
     "extends": [
-      "@scropt/eslint-config-typescript"
+      "@ztolley/eslint-config-typescript"
     ]
   },
   "prettier": {
