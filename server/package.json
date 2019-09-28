@@ -33,7 +33,7 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "@ztolley/eslint-config-typescript": "^0.1.0",
+    "@ztolley/eslint-config-typescript": "^0.1.1",
     "dotenv": "^8.1.0",
     "eslint": "^6.4.0",
     "nodemon": "^1.19.2"
