@@ -14,7 +14,7 @@
   "author": "Zac Tolley <zac@thetolleys.com> (https://github.com/ztolley)",
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon",
+    "develop": "nodemon",
     "lint": "eslint",
     "start": "node ./dist/script.js",
     "db:gen": "prisma2 lift save",
