@@ -24,9 +24,8 @@ const TodoEdit = (props: RouteComponentProps<TodoParams>): JSX.Element => {
   const updateTodoMutation = useUpdateTodoMutation()
   const { data, error, loading } = useToDoQuery({ variables: { id } })
 
-  if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>
-  const { todo } = data
+  const todo = loading ? null : data.todo
 
   const onSubmit = async (formData: Todo): Promise<void> => {
     /*
@@ -59,7 +58,11 @@ const TodoEdit = (props: RouteComponentProps<TodoParams>): JSX.Element => {
   return (
     <div className="container">
       <h1>Edit Todo</h1>
-      <TodoForm todo={todo} onSubmit={onSubmit} onCancel={onCancel} />
+
+      {loading && <p>Loading</p>}
+      {!loading && (
+        <TodoForm todo={todo} onSubmit={onSubmit} onCancel={onCancel} />
+      )}
     </div>
   )
 }
