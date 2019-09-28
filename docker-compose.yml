@@ -9,9 +9,9 @@ services:
       DATABASE_URL: postgres://todo:password@db/todo
       NODE_ENV: production
       SERVER_PORT: 3000
-    restart: unless-stopped
     depends_on:
       - db
+    restart: unless-stopped
     command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; yarn --cwd /app start'
 
   webapp:
@@ -22,17 +22,21 @@ services:
 
   db:
     image: postgres
-    restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: todo
       POSTGRES_DB: todo
+    ports:
+      - 54321:5432
+    restart: unless-stopped
 
   pgadmin:
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@scropt.com
+      PGADMIN_DEFAULT_EMAIL: admin@test.com
       PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - 8001:80
     depends_on:
       - db
     restart: unless-stopped
