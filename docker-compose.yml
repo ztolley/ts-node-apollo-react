@@ -6,7 +6,7 @@ services:
       context: ./server
       dockerfile: ../docker/Dockerfile-server
     environment:
-      DATABASE_URL: postgres://todo:password@db/todo
+      DATABASE_URL: postgresql://todo:password@db/todo
       NODE_ENV: production
       SERVER_PORT: 3000
     depends_on:

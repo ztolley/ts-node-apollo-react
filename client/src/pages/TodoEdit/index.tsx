@@ -8,6 +8,7 @@ import {
   useUpdateTodoMutation,
 } from '../../graphql'
 import TodoForm from '../../forms/Todo'
+import { Container, Card } from 'react-bootstrap'
 
 interface TodoParams {
   id: string
@@ -56,14 +57,16 @@ const TodoEdit = (props: RouteComponentProps<TodoParams>): JSX.Element => {
   }
 
   return (
-    <div className="container">
-      <h1>Edit Todo</h1>
-
-      {loading && <p>Loading</p>}
-      {!loading && (
-        <TodoForm todo={todo} onSubmit={onSubmit} onCancel={onCancel} />
-      )}
-    </div>
+    <Container className="py-3">
+      <Card className="center" style={{ maxWidth: 500 }}>
+        <Card.Body>
+          {loading && <p>Loading</p>}
+          {!loading && (
+            <TodoForm todo={todo} onSubmit={onSubmit} onCancel={onCancel} />
+          )}
+        </Card.Body>
+      </Card>
+    </Container>
   )
 }
 
