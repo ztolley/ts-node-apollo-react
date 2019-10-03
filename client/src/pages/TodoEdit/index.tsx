@@ -57,8 +57,8 @@ const TodoEdit = (props: RouteComponentProps<TodoParams>): JSX.Element => {
   }
 
   return (
-    <Container className="py-3">
-      <Card className="center" style={{ maxWidth: 500 }}>
+    <Container className="py-3 center" style={{ maxWidth: 500 }}>
+      <Card>
         <Card.Body>
           {loading && <p>Loading</p>}
           {!loading && (
