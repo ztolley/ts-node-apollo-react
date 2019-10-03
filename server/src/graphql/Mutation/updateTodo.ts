@@ -1,15 +1,13 @@
-import { Photon, Todo } from '@generated/photon'
 import { MutationUpdateTodoArgs, ResolverFn } from '../resolver-types'
 
-const photon = new Photon()
+import { Todo } from '../../entity/Todo'
 
 export const updateTodo: ResolverFn<
   Todo,
   undefined,
   any,
   MutationUpdateTodoArgs
-> = (_, args) =>
-  photon.todos.update({
-    where: { id: args.id },
-    data: args,
-  })
+> = async (_, { id, ...args }) => {
+  Todo.update(id, args)
+  return Todo.findOne(id)
+}

@@ -7,7 +7,9 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist",
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
   "include": ["src"]
 }

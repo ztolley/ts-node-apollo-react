@@ -1,15 +1,12 @@
-import { Photon, Project } from '@generated/photon'
 import { MutationUpdateProjectArgs, ResolverFn } from '../resolver-types'
-
-const photon = new Photon()
+import { Project } from '../../entity/Project'
 
 export const updateProject: ResolverFn<
   Project,
   undefined,
   any,
   MutationUpdateProjectArgs
-> = (_, args) =>
-  photon.projects.update({
-    where: { id: args.id },
-    data: args,
-  })
+> = async (_, { id, ...args }) => {
+  Project.update(id, args)
+  return Project.findOne(id)
+}

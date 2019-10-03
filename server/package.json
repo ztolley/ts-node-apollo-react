@@ -16,10 +16,7 @@
     "build": "tsc",
     "develop": "nodemon",
     "lint": "eslint",
-    "start": "node ./dist/script.js",
-    "db:gen": "prisma2 lift save",
-    "db:migrate": "prisma2 lift up",
-    "db:dao": "prisma2 generate"
+    "start": "node ./dist/script.js"
   },
   "dependencies": {
     "apollo-server-express": "^2.9.4",
@@ -27,16 +24,17 @@
     "graphql": "^14.5.8",
     "graphql-import": "^0.7.1",
     "pg": "^7.12.1",
-    "prisma2": "2.0.0-preview-12",
-    "ts-node": "^8.4.1",
-    "typescript": "^3.6.3",
+    "reflect-metadata": "^0.1.10",
+    "typeorm": "0.2.19",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
+    "@types/node": "^12.7.9",
     "@ztolley/eslint-config-typescript": "^0.1.1",
-    "dotenv": "^8.1.0",
     "eslint": "^6.4.0",
-    "nodemon": "^1.19.2"
+    "nodemon": "^1.19.2",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
   },
   "engines": {
     "node": ">= 10"
