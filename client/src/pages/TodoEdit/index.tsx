@@ -1,5 +1,6 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router-dom'
+import { Container, Card } from 'react-bootstrap'
 
 import {
   Todo,
@@ -8,7 +9,6 @@ import {
   useUpdateTodoMutation,
 } from '../../graphql'
 import TodoForm from '../../forms/Todo'
-import { Container, Card } from 'react-bootstrap'
 
 interface TodoParams {
   id: string
@@ -22,14 +22,19 @@ const TodoEdit = (props: RouteComponentProps<TodoParams>): JSX.Element => {
     },
   } = props
 
-  const updateTodoMutation = useUpdateTodoMutation()
+  const [
+    updateTodo,
+    { loading: updateLoading, error: updateError },
+  ] = useUpdateTodoMutation()
+
   const { data, error, loading } = useToDoQuery({ variables: { id } })
 
   if (error) return <p>Error: {error.message}</p>
+  if (updateError) return <p>Error Saving: {updateError.message}</p>
+
   const todo = loading ? null : data.todo
 
   const onSubmit = async (formData: Todo): Promise<void> => {
-    /*
     const variables: UpdateTodoMutationVariables = {
       id: formData.id,
       title: formData.title,
@@ -37,18 +42,7 @@ const TodoEdit = (props: RouteComponentProps<TodoParams>): JSX.Element => {
       projectId: formData.project.id,
     }
 
-    const [
-      newTodo,
-      { loading: updateLoading, error: updateError },
-    ] = updateTodoMutation()
-
-    if (updateLoading) {
-      console.log('loading')
-    }
-    if (updateError) {
-      console.log(error)
-    }
-*/
+    updateTodo({ variables })
     history.push('/')
   }
 
@@ -64,6 +58,8 @@ const TodoEdit = (props: RouteComponentProps<TodoParams>): JSX.Element => {
           {!loading && (
             <TodoForm todo={todo} onSubmit={onSubmit} onCancel={onCancel} />
           )}
+
+          {updateLoading && <p>Saving</p>}
         </Card.Body>
       </Card>
     </Container>
