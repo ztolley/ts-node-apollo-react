@@ -1,7 +1,7 @@
-import { Todo } from '../../entity/Todo'
+import { TodoEntity } from '../../entity/TodoEntity'
 import { QueryTodoArgs, ResolverFn } from '../resolver-types'
 
-export const todo: ResolverFn<Todo, undefined, any, QueryTodoArgs> = (
+export const todo: ResolverFn<TodoEntity, undefined, any, QueryTodoArgs> = (
   _,
   { id }
-) => Todo.findOne(id)
+) => TodoEntity.findOne(id)

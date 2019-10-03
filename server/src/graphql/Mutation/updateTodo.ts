@@ -1,13 +1,13 @@
 import { MutationUpdateTodoArgs, ResolverFn } from '../resolver-types'
 
-import { Todo } from '../../entity/Todo'
+import { TodoEntity } from '../../entity/TodoEntity'
 
 export const updateTodo: ResolverFn<
-  Todo,
+  TodoEntity,
   undefined,
   any,
   MutationUpdateTodoArgs
 > = async (_, { id, ...args }) => {
-  Todo.update(id, args)
-  return Todo.findOne(id)
+  TodoEntity.update(id, args)
+  return TodoEntity.findOne(id)
 }

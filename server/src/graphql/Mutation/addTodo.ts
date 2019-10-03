@@ -1,9 +1,9 @@
-import { Todo } from '../../entity/Todo'
+import { TodoEntity } from '../../entity/TodoEntity'
 import { MutationAddTodoArgs, ResolverFn } from '../resolver-types'
 
 export const addTodo: ResolverFn<
-  Todo,
+  TodoEntity,
   undefined,
   any,
   MutationAddTodoArgs
-> = async (_, args) => Todo.create(args).save()
+> = async (_, args) => TodoEntity.create(args).save()

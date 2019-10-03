@@ -1,9 +1,9 @@
-import { Project } from '../../entity/Project'
+import { ProjectEntity } from '../../entity/ProjectEntity'
 import { MutationAddProjectArgs, ResolverFn } from '../resolver-types'
 
 export const addProject: ResolverFn<
-  Project,
+  ProjectEntity,
   undefined,
   any,
   MutationAddProjectArgs
-> = (_, args) => Project.create(args).save()
+> = (_, args) => ProjectEntity.create(args).save()

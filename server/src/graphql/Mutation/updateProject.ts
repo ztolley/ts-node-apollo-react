@@ -1,12 +1,12 @@
+import { ProjectEntity } from '../../entity/ProjectEntity'
 import { MutationUpdateProjectArgs, ResolverFn } from '../resolver-types'
-import { Project } from '../../entity/Project'
 
 export const updateProject: ResolverFn<
-  Project,
+  ProjectEntity,
   undefined,
   any,
   MutationUpdateProjectArgs
 > = async (_, { id, ...args }) => {
-  Project.update(id, args)
-  return Project.findOne(id)
+  ProjectEntity.update(id, args)
+  return ProjectEntity.findOne(id)
 }
