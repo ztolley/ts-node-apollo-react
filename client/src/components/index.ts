@@ -1,5 +1,3 @@
-import Checkbox from './Checkbox'
-import Input from './Input'
-import Select from './Select'
-
-export { Checkbox, Input, Select }
+export * from './Checkbox'
+export * from './Input'
+export * from './Select'

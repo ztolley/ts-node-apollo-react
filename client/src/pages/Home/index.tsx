@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { useTodoListQuery } from '../../graphql'
 
-const Home: React.FC = () => {
+export const Home: React.FC = () => {
   const { data, error, loading } = useTodoListQuery()
   const todos = !error && !loading && data && data.todos ? data.todos : null
 
@@ -26,5 +26,3 @@ const Home: React.FC = () => {
     </Container>
   )
 }
-
-export default Home

@@ -7,8 +7,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import Home from './pages/Home'
-import TodoEdit from './pages/TodoEdit'
+import { Home } from './pages/Home'
+import { TodoEdit } from './pages/TodoEdit'
 
 const client = new ApolloClient({
   uri: '/api',

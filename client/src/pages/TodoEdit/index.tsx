@@ -8,13 +8,15 @@ import {
   useToDoQuery,
   useUpdateTodoMutation,
 } from '../../graphql'
-import TodoForm from '../../forms/Todo'
+import { TodoForm } from '../../forms/Todo'
 
-interface TodoParams {
+export interface TodoParams {
   id: string
 }
 
-const TodoEdit = (props: RouteComponentProps<TodoParams>): JSX.Element => {
+export const TodoEdit = (
+  props: RouteComponentProps<TodoParams>
+): JSX.Element => {
   const {
     history,
     match: {
@@ -65,5 +67,3 @@ const TodoEdit = (props: RouteComponentProps<TodoParams>): JSX.Element => {
     </Container>
   )
 }
-
-export default TodoEdit

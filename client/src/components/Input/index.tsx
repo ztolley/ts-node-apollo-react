@@ -1,7 +1,7 @@
 import { Field, ErrorMessage } from 'formik'
 import React from 'react'
 
-interface InputProps {
+export interface InputProps {
   disabled?: boolean
   footnote?: string
   label?: string
@@ -9,22 +9,22 @@ interface InputProps {
   type?: string
 }
 
-const Input = (props: InputProps): JSX.Element => {
-  const { disabled = false, footnote, label, name, type = 'text' } = props
-
-  return (
-    <div className="form-group">
-      {label && <label htmlFor={name}>{label}</label>}
-      <Field
-        className="form-control"
-        disabled={disabled}
-        name={name}
-        type={type}
-      />
-      <small className="form-text text-muted">{footnote}</small>
-      <ErrorMessage className="invalid-feedback" component="div" name={name} />
-    </div>
-  )
-}
-
-export default Input
+export const Input: React.FC<InputProps> = ({
+  disabled = false,
+  footnote,
+  label,
+  name,
+  type = 'text',
+}) => (
+  <div className="form-group">
+    {label && <label htmlFor={name}>{label}</label>}
+    <Field
+      className="form-control"
+      disabled={disabled}
+      name={name}
+      type={type}
+    />
+    <small className="form-text text-muted">{footnote}</small>
+    <ErrorMessage className="invalid-feedback" component="div" name={name} />
+  </div>
+)
