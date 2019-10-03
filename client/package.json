@@ -12,9 +12,10 @@
   ],
   "author": "Zac Tolley <zac@thetolleys.com> (https://github.com/ztolley)",
   "scripts": {
+    "build": "react-scripts build",
+    "codegen": "gql-gen --config codegen.yml",
     "develop": "react-scripts start",
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test"
   },
   "dependencies": {
@@ -35,6 +36,10 @@
     "typescript": "3.6.3"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.8.0",
+    "@graphql-codegen/typescript": "^1.8.0",
+    "@graphql-codegen/typescript-operations": "^1.8.0",
+    "@graphql-codegen/typescript-react-apollo": "^1.8.0",
     "@types/react-router-dom": "^5.1.0",
     "@ztolley/eslint-config-typescript": "^0.1.1"
   },
