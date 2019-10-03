@@ -34,8 +34,10 @@
     "@graphql-codegen/typescript": "^1.8.0",
     "@graphql-codegen/typescript-resolvers": "^1.8.0",
     "@types/node": "^12.7.9",
+    "@typescript-eslint/parser": "^2.3.2",
     "@ztolley/eslint-config-typescript": "^0.1.1",
     "eslint": "^6.4.0",
+    "eslint-plugin-react-hooks": "^2.1.1",
     "nodemon": "^1.19.2",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.3"
