@@ -14,6 +14,7 @@
   "author": "Zac Tolley <zac@thetolleys.com> (https://github.com/ztolley)",
   "scripts": {
     "build": "tsc",
+    "codegen": "gql-gen --config codegen.yml",
     "develop": "nodemon",
     "lint": "eslint",
     "start": "node ./dist/script.js"
@@ -29,6 +30,9 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.8.0",
+    "@graphql-codegen/typescript": "^1.8.0",
+    "@graphql-codegen/typescript-resolvers": "^1.8.0",
     "@types/node": "^12.7.9",
     "@ztolley/eslint-config-typescript": "^0.1.1",
     "eslint": "^6.4.0",
