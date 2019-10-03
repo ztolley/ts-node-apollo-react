@@ -11,7 +11,7 @@ import Home from './pages/Home'
 import TodoEdit from './pages/TodoEdit'
 
 const client = new ApolloClient({
-  uri: '/graphql',
+  uri: '/api',
 })
 
 ReactDOM.render(
