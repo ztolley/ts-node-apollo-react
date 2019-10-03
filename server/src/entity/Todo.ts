@@ -4,6 +4,7 @@ import {
   Column,
   BaseEntity,
   ManyToOne,
+  RelationId,
 } from 'typeorm'
 
 import { Project } from './Project'
@@ -20,5 +21,6 @@ export class Todo extends BaseEntity {
   complete: boolean
 
   @ManyToOne(type => Project, project => project.todos)
+  @RelationId((todo: Todo) => todo.project)
   project!: Project
 }
