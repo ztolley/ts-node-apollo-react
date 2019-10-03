@@ -4,7 +4,12 @@ mutation UpdateTodo(
   $projectId: String
   $complete: Boolean!
 ) {
-  updateTodo(id: $id, title: $title, projectId: $projectId, complete: $complete) {
+  updateTodo(
+    id: $id
+    title: $title
+    projectId: $projectId
+    complete: $complete
+  ) {
     id
     title
     project {
