@@ -4,7 +4,6 @@ services:
   api:
     build:
       context: ./server
-      dockerfile: ../docker/Dockerfile-server
     environment:
       DATABASE_URL: postgresql://todo:password@db/todo
       NODE_ENV: production
@@ -16,8 +15,8 @@ services:
 
   webapp:
     build:
-      context: ./web
-      dockerfile: docker/Dockerfile-client
+      context: ./
+      dockerfile: ./client/Dockerfile
     restart: unless-stopped
 
   db:

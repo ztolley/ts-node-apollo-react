@@ -2,13 +2,13 @@ FROM node:lts as build-env-server
 WORKDIR /app
 
 COPY ./package.json ./
-COPY ./yarn.lock ./
-COPY ./.yarnrc ./
+COPY ./package-lock.json ./
 
-RUN yarn install
+RUN npm install
 
 COPY ./ ./
-RUN yarn build
+run npm run codegen
+RUN npm run build
 
 
 FROM node:lts
@@ -16,4 +16,4 @@ WORKDIR /app
 
 COPY --from=build-env-server /app ./
 
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
